@@ -20,8 +20,7 @@ app.get('/beers', (req, res, next) => {
   punkAPI
     .getBeers()
     .then(beers => {
-      res.locals.beersArray = beers;
-      res.render('beers.hbs');
+      res.render('beers.hbs', beers);
     })
     .catch(error => {
       console.log(error);
@@ -32,8 +31,7 @@ app.get('/random-beer', (req, res, next) => {
   punkAPI
     .getRandom()
     .then(beers => {
-      res.locals.beersArray = beers;
-      res.render('random-beers.hbs');
+      res.render('random-beers.hbs', beers);
     })
     .catch(error => {
       console.log(error);
